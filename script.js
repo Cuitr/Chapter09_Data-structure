@@ -28,9 +28,39 @@ const restaurant = {
   },
   oder: function(starterIndex, mainIndex){
     return [this.starterMenu[starterIndex], this.mainMenu[mainIndex]];
-  }
+  },
+  
 };
-console.log(restaurant.oder(2, 1));
+/*---Destructuring Object--*/
+//we use cruly braces to destructure object, just like how we create them
+const {name, categories, openingHours} = restaurant;
+//console.log(name, categories, openingHours);
+
+const[starter, main] = restaurant.oder(1,1);
+console.log(starter, main);
+
+//set variables name difference from the properties name
+const {name: restaurantName, 
+  categories: type, 
+  openingHours: hours} = restaurant;
+  console.log(restaurantName, hours, type);
+  // mutating variables
+  let a = 100;
+  let b = 200;
+  const obj = {a: 12, b: 15, c: 20};
+  ({a, b} = obj); // "=" follows a block of statements, so if we intended to write a destructing assignment, we might need to warp the whole assignment in parentheses "()"
+  console.log(a, b);
+
+  /*---nested object destructuring---*/
+
+  //const{fri} = openingHours;
+  //console.log(fri);
+  
+  const {fri: {open, close}} = openingHours;
+  console.log(open, close);
+
+
+//console.log(restaurant.oder(2, 1));
 //const [first, second] = restaurant.categories;
 // console.log(first, second); // Italian Pizzeria
 //const [first, ,third] = restaurant.categories;
@@ -42,4 +72,11 @@ console.log(restaurant.oder(2, 1));
 let [first, ,third] = restaurant.categories;
 [first, third] = [third, first];
 console.log(first, third);
+*/
+
+// --Destructuring nested array--
+/*
+const nested = [2, 4, [5, 6]];
+const [i, , [j, k]] = nested;
+console.log(i, j, k);
 */

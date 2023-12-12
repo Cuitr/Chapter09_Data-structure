@@ -29,17 +29,19 @@ const restaurant = {
   oder: function(starterIndex, mainIndex){
     return [this.starterMenu[starterIndex], this.mainMenu[mainIndex]];
   },
+  orderPasta: function(ing1, ing2, ing3){
+    console.log(`Here is your delicious pasta with ${ing1}, ${ing2} and ${ing3}`);
+  }
   
 };
+
 /*---Destructuring Object--*/
 //we use cruly braces to destructure object, just like how we create them
-const {name, categories, openingHours} = restaurant;
+// const {name, categories, openingHours} = restaurant;
 //console.log(name, categories, openingHours);
 
-const[starter, main] = restaurant.oder(1,1);
-console.log(starter, main);
-
 //set variables name difference from the properties name
+/*
 const {name: restaurantName, 
   categories: type, 
   openingHours: hours} = restaurant;
@@ -50,9 +52,9 @@ const {name: restaurantName,
   const obj = {a: 12, b: 15, c: 20};
   ({a, b} = obj); // "=" follows a block of statements, so if we intended to write a destructing assignment, we might need to warp the whole assignment in parentheses "()"
   console.log(a, b);
-
+*/
   /*---nested object destructuring---*/
-
+/*
   //const{fri} = openingHours;
   //console.log(fri);
   
@@ -76,7 +78,17 @@ console.log(first, third);
 
 // --Destructuring nested array--
 /*
+const[starter, main] = restaurant.oder(1,1);
+console.log(starter, main);
+
 const nested = [2, 4, [5, 6]];
 const [i, , [j, k]] = nested;
 console.log(i, j, k);
 */
+/*--- SPREAD OPTERATOR ---*/
+const ingredients = [
+  prompt(`Let\'s make pasta with ingredient 1`),
+  prompt(`ingredient 2`),
+  prompt(`ingredient 3`)
+];
+restaurant.orderPasta(...ingredients);

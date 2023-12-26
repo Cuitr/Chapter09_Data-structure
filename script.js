@@ -262,7 +262,86 @@ console.log(team2 && team1);
 /*---LOOPING ARRAYS: The for - of loop ----*/
 /*
 const student = [`Vinh`, `Phuong`, `Chan`, `Cuong`, `Hau`];
-for(const indiv of student.entries()){
-  console.log(`Number ${indiv[0] + 1} is ${indiv[1]}`);
+for(const [oder, indiv] of student.entries()){
+  console.log(`Number ${oder + 1} is ${indiv}`);
 }
 */
+
+/*---ENHANCED OBJECT LITERALS---*/
+
+/*---Optional chaining (?.)---*/
+
+//let's say we want to check the data from web API if it exist:
+//console.log(restaurant.openingHours.mon.open);
+//=> We'll get an error because restaurant.openingHours.mon does not exist -> undefined. The open property we read from undefined will throw an error
+//=> we have to check first
+/*
+if(restaurant.openingHours.mon){
+  console.log(restaurant.openingHours.mon.open);
+}else{
+  console.log(`mon property doesn't exist`);
+}
+//=> mon property doesn't exist
+*/
+/* With optional chaining:*/
+//console.log(restaurant.openingHours.mon?.open);
+//=> umdefined
+/*Explain code: if restaurant.openingHours.mon exist (not null, not undefined), then read the open property from there. if not, return undefined immediately.*/
+
+//The same goes for checking multiple property:
+//console.log(restaurant.openingHours?.mon?.open);
+
+//real world example: let's loop over this array and then display to the console whether the restaurant is opened or closed
+/*
+const days = [`mon`, `tue`, `wen`, `thu`, `fri`, `sat`, `sun`];
+for(const day of days){
+  const openHour = restaurant.openingHours[day]?.open ?? `closed`;
+  console.log(`On ${day}day, the restaurant open at ${openHour} `);
+}
+*/
+
+/*-----LOOPING OBJECTS: Object keys, values, and entries-----*/
+
+//looping through properties name:
+
+// for(const days of Object.keys(restaurant.openingHours)){
+//   console.log(days);
+// }
+
+//Object.keys(restaurant.openingHours) is actually an array, so we can be stored in a variable
+
+const properties = Object.keys(restaurant.openingHours);
+
+// console.log(properties); => ["thu", "fri", "sat"]
+
+// for(const days of properties){
+//   console.log(days);
+// }
+
+//we can do that too:
+// let str = `We open on ${properties.length} days: `;
+// for(const days of properties){
+//   str += `${days}, `;
+// }
+// console.log(str);
+
+//Looping through VALUES
+
+// const values = Object.values(restaurant.openingHours);
+// console.log(values);
+// for(const value of values){
+//   console.log(value);
+// }
+
+//Looping through the entire object by using entries:
+
+const entries = Object.entries(restaurant.openingHours);
+
+// for(const obj of entries){
+//   console.log(obj);
+// }
+
+//==> Destructuring the entries value
+for(const[day, {open, close}] of entries){
+  console.log(`On ${day}, we open at ${open} and close at ${close}!`);
+}

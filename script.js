@@ -411,6 +411,85 @@ In this game, it will look like this:
 // }
 // console.log(scorer);
 
+/*=== SET ===*/
 
+/*====MAP===*/
+// const rest = new Map();
+// rest.set(`Name`, `Vinh`);
+// rest.set(28, `Age`);
+// // console.log(rest.set(`wife`, `Truc Phuong`));
+// const friendAge = [28, 29, 30];
+// rest.set(`Friend`, [`Phuong`, `Cuong`, `Chan`]).set(friendAge, `Age`).set(`Married`, [true, false, true]);
+// console.log(rest.get(friendAge));
+
+/*===-MAPs: Iteration-===*/
+
+//Another way to create Map without using set:
+const question = new Map([
+  [`question`, `What is the best programming language in the World?`],
+  [1, `C`],
+  [2, `Java`],
+  [3, `JavaScript`],
+  [`correct`, 3],
+  [true, `Correct!`],
+  [false, `Try again!`],
+]);
+// const answer = Number(prompt(`Your answer:`));
+// for(const[key, value] of question){
+//   if(answer === key){
+//     console.log(`Your answer is ${value}`);
+//   }
+// }
+// console.log(question.get(question.get(`correct`) === answer));
+
+// Coding Challenge #3
+
+/* 
+Let's continue with our football betting app! 
+This time, we have a map with a log of the events that happened during the game. 
+The values are the events themselves, 
+and the keys are the minutes in which each event happened (a football game has 90 minutes plus some extra time).
+
+1. Create an array 'events' of the different game events that happened (no duplicates)
+2. After the game has finished, is was found that the yellow card from minute 64 was unfair. 
+So remove this event from the game events log.
+3. Print the following string to the console: 
+"An event happened, on average, every 9 minutes" (keep in mind that a game has 90 minutes)
+4. Loop over the events and log them to the console, 
+marking whether it's in the first half or second half (after 45 min) of the game, like this:
+      [FIRST HALF] 17: ⚽️ GOAL
+
+GOOD LUCK 😀
+*/
+const gameEvents = new Map([
+  [17, '⚽️ GOAL'],
+  [36, '🔁 Substitution'],
+  [47, '⚽️ GOAL'],
+  [61, '🔁 Substitution'],
+  [64, '🔶 Yellow card'],
+  [69, '🔴 Red card'],
+  [70, '🔁 Substitution'],
+  [72, '🔁 Substitution'],
+  [76, '⚽️ GOAL'],
+  [80, '⚽️ GOAL'],
+  [92, '🔶 Yellow card'],
+]);
+
+/*1)
+const eventsArr = new Set();
+for(const[time, events] of gameEvents){
+  eventsArr.add(events);
+}
+console.log(eventsArr);
+*/
+//2)
+// gameEvents.delete(64);
+//4)
+// for(const[time, event] of gameEvents){
+//   console.log(time < 45 ? `[FIRST HALF] ${time}: ${event}` : time > 45 && time < 90 ? `[SECOND HALF] ${time}: ${event}` : ` [EXTRA TIME] ${time}: ${event}`);
+// }
+
+
+/*===--WORKING WITH STRING #1--=== */
 
 
